@@ -3,19 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Domain", "TodoList.Domain\TodoList.Domain.csproj", "{AE249D8C-A512-4ECD-8C30-31EF161D9E71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.Domain", "TodoList.Domain\TodoList.Domain.csproj", "{AE249D8C-A512-4ECD-8C30-31EF161D9E71}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E58E1266-ED72-4CAC-966B-D451DCB9BB8F} = {E58E1266-ED72-4CAC-966B-D451DCB9BB8F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Services", "TodoList.Services\TodoList.Services.csproj", "{8506250D-11EE-4EB6-A5DA-7C7E0ABFFE19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.Services", "TodoList.Services\TodoList.Services.csproj", "{8506250D-11EE-4EB6-A5DA-7C7E0ABFFE19}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AE249D8C-A512-4ECD-8C30-31EF161D9E71} = {AE249D8C-A512-4ECD-8C30-31EF161D9E71}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.Extensibility", "TodoList.Extensibility\TodoList.Extensibility.csproj", "{E58E1266-ED72-4CAC-966B-D451DCB9BB8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.Extensibility", "TodoList.Extensibility\TodoList.Extensibility.csproj", "{E58E1266-ED72-4CAC-966B-D451DCB9BB8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoList.WebApi", "TodoList.WebApi\TodoList.WebApi.csproj", "{0F0FBE46-99A6-4A30-9F78-7B63454A89EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.WebApi", "TodoList.WebApi\TodoList.WebApi.csproj", "{0F0FBE46-99A6-4A30-9F78-7B63454A89EC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8506250D-11EE-4EB6-A5DA-7C7E0ABFFE19} = {8506250D-11EE-4EB6-A5DA-7C7E0ABFFE19}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

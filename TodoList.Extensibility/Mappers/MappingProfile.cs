@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using AutoMapper;
-using TodoList.Extensibility.Dto;
+﻿using AutoMapper;
 
 namespace TodoList.Extensibility.Mappers
 {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
-using System.Text;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace TodoList.Domain.Models
 {
@@ -12,13 +8,15 @@ namespace TodoList.Domain.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CategoryId { set; get; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Field is required")]
         [MaxLength(100)]
-        public string Name { set; get; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Field is required")]
-        public string Color { set; get; }
+        public string Color { get; set; }
+
+        public ICollection<Note> Notes { get; set; }
     }
 }
