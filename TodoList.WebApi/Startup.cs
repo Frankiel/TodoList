@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TodoList.Domain.Models;
 using TodoList.Domain.Repository;
+using TodoList.Extensibility.Providers;
 using TodoList.Extensibility.Repository;
+using TodoList.Services.Providers;
+using TodoList.WebApi.Mappings;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace TodoList.WebApi
 {
@@ -26,6 +30,10 @@ namespace TodoList.WebApi
             var connectionString = Configuration["connectionStrings:onlineElectionDBConnectionString"];
             services.AddDbContext<TodoListContext>(o => o.UseSqlServer(connectionString));
             services.AddScoped<INoteRepository, NoteRepository>();
+            var mappingConfig = new MapperConfiguration(mc => { mc.AddProfile(new TodoMappingProfile()); });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+            services.AddScoped<INoteProvider, NoteProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

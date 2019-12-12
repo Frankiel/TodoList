@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using TodoList.Domain.Models;
 using TodoList.Extensibility.Dto;
+using TodoList.Extensibility.Providers;
 using TodoList.Extensibility.Repository;
 
 namespace TodoList.WebApi.Controllers
@@ -9,24 +11,24 @@ namespace TodoList.WebApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly INoteRepository noteRepository;
+        private readonly INoteProvider noteProvider;
 
-        public ValuesController(INoteRepository noteRepository)
+        public ValuesController(INoteProvider noteProvider)
         {
-            this.noteRepository = noteRepository;
+            this.noteProvider = noteProvider;
         }
         // GET api/values
         [HttpGet]
         public IEnumerable<NoteDto> Get()
         {
-            return noteRepository.Get();
+            return noteProvider.GetAllNotes();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public NoteDto Get(int id)
         {
-            return "value";
+            return noteProvider.GetNote(id);
         }
 
         // POST api/values

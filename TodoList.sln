@@ -10,6 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.Domain", "TodoList
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoList.Services", "TodoList.Services\TodoList.Services.csproj", "{8506250D-11EE-4EB6-A5DA-7C7E0ABFFE19}"
 	ProjectSection(ProjectDependencies) = postProject
+		{E58E1266-ED72-4CAC-966B-D451DCB9BB8F} = {E58E1266-ED72-4CAC-966B-D451DCB9BB8F}
 		{AE249D8C-A512-4ECD-8C30-31EF161D9E71} = {AE249D8C-A512-4ECD-8C30-31EF161D9E71}
 	EndProjectSection
 EndProject
