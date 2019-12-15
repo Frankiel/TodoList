@@ -6,9 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TodoList.Domain.Models;
 using TodoList.Domain.Repository;
-using TodoList.Extensibility.Providers;
 using TodoList.Extensibility.Repository;
-using TodoList.Services.Providers;
+using TodoList.Extensibility.Services;
+using TodoList.Extensibility.Validators;
+using TodoList.Services.Services;
+using TodoList.Services.Validators;
 using TodoList.WebApi.Mappings;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
@@ -29,11 +31,15 @@ namespace TodoList.WebApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var connectionString = Configuration["connectionStrings:onlineElectionDBConnectionString"];
             services.AddDbContext<TodoListContext>(o => o.UseSqlServer(connectionString));
-            services.AddScoped<INoteRepository, NoteRepository>();
             var mappingConfig = new MapperConfiguration(mc => { mc.AddProfile(new TodoMappingProfile()); });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
-            services.AddScoped<INoteProvider, NoteProvider>();
+            services.AddScoped<INoteRepository, NoteRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<INoteService, NoteService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<INoteValidator, NoteValidator>();
+            services.AddScoped<ICategoryValidator, CategoryValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -11,6 +11,10 @@ namespace TodoList.WebApi.Mappings
         {
             CreateMap<Note, NoteDto>();
             CreateMap<NoteDto, Note>();
+            CreateMap<NoteCreateDto, Note>();
+            CreateMap<Category, CategoryDto>();
+            CreateMap<CategoryDto, Category>();
+            CreateMap<CategoryAddUpdateDto, Category>();
         }
     }
 }

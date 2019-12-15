@@ -30,19 +30,27 @@ namespace TodoList.Domain.Repository
             return mapper.Map<NoteDto>(todoListContext.Notes.FirstOrDefault(note => note.Id == id));
         }
 
-        public void Add(NoteDto note)
+        public void Add(NoteCreateDto note)
         {
-            throw new NotImplementedException();
+            Note result = mapper.Map<Note>(note);
+            todoListContext.Notes.Add(new Note(){Text = note.Text, CategoryId = 1});
+            todoListContext.SaveChanges();
         }
 
-        public void Delete(NoteDto note)
+        public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var noteToRemove = todoListContext.Notes.FirstOrDefault(note => note.Id == id);
+
+            todoListContext.Notes.Remove(noteToRemove);
+            todoListContext.SaveChanges();
         }
 
-        public void Save()
+        public void Update(int id, NoteCreateDto note)
         {
-            throw new NotImplementedException();
+            var noteToUpdate = todoListContext.Notes.FirstOrDefault(noteEntity => noteEntity.Id == id);
+
+            mapper.Map(note, noteToUpdate);
+            todoListContext.SaveChanges();
         }
     }
 }
