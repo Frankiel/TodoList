@@ -9,10 +9,10 @@ namespace TodoList.Extensibility.Repository
 
         NoteDto Get(int id);
 
-        void Add(NoteCreateDto note);
+        void Add(NoteCreateUpdateDto note);
 
         void Delete(int id);
 
-        void Update(int id, NoteCreateDto note);
+        void Update(int id, NoteCreateUpdateDto note);
     }
 }

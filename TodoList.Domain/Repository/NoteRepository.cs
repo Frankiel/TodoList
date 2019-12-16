@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using TodoList.Domain.Models;
@@ -30,7 +29,7 @@ namespace TodoList.Domain.Repository
             return mapper.Map<NoteDto>(todoListContext.Notes.FirstOrDefault(note => note.Id == id));
         }
 
-        public void Add(NoteCreateDto note)
+        public void Add(NoteCreateUpdateDto note)
         {
             Note result = mapper.Map<Note>(note);
             todoListContext.Notes.Add(new Note(){Text = note.Text, CategoryId = 1});
@@ -45,7 +44,7 @@ namespace TodoList.Domain.Repository
             todoListContext.SaveChanges();
         }
 
-        public void Update(int id, NoteCreateDto note)
+        public void Update(int id, NoteCreateUpdateDto note)
         {
             var noteToUpdate = todoListContext.Notes.FirstOrDefault(noteEntity => noteEntity.Id == id);
 

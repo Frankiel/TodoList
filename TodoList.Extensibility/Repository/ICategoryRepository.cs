@@ -9,9 +9,9 @@ namespace TodoList.Extensibility.Repository
 
         CategoryDto Get(int id);
 
-        void Add(CategoryAddUpdateDto category);
+        void Add(CategoryCreateUpdateDto category);
 
-        void Update(int id, CategoryAddUpdateDto category);
+        void Update(int id, CategoryCreateUpdateDto category);
 
         void Delete(int id);
     }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using TodoList.Extensibility.Dto;
 using TodoList.Extensibility.Repository;
 using TodoList.Extensibility.Validators;
@@ -21,7 +19,7 @@ namespace TodoList.Services.Validators
             return categoryRepository.Get(id) != null;
         }
 
-        public bool ValidateInput(CategoryAddUpdateDto note)
+        public bool ValidateInput(CategoryCreateUpdateDto note)
         {
             throw new NotImplementedException();
         }

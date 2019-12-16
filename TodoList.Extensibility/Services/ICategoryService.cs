@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Extensibility.Dto;
 
@@ -12,9 +10,9 @@ namespace TodoList.Extensibility.Services
 
         IActionResult Get(int id);
 
-        IActionResult Add(CategoryAddUpdateDto category);
+        IActionResult Add(CategoryCreateUpdateDto category);
 
-        IActionResult Update(int id, CategoryAddUpdateDto category);
+        IActionResult Update(int id, CategoryCreateUpdateDto category);
 
         IActionResult Delete(int id);
     }

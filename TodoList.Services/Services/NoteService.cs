@@ -32,7 +32,7 @@ namespace TodoList.Services.Services
             return new OkObjectResult(noteRepository.Get(id));
         }
 
-        public IActionResult Add(NoteCreateDto note)
+        public IActionResult Add(NoteCreateUpdateDto note)
         {
             if (!noteValidator.ValidateAdd(note))
             {
@@ -56,7 +56,7 @@ namespace TodoList.Services.Services
             return new NoContentResult();
         }
 
-        public IActionResult Update(int id, NoteCreateDto note)
+        public IActionResult Update(int id, NoteCreateUpdateDto note)
         {
             if (!noteValidator.ValidateExistence(id) || !noteValidator.ValidateAdd(note))
             {

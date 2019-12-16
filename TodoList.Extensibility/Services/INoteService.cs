@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Extensibility.Dto;
 
@@ -12,10 +10,10 @@ namespace TodoList.Extensibility.Services
 
         IActionResult GetNote(int id);
 
-        IActionResult Add(NoteCreateDto note);
+        IActionResult Add(NoteCreateUpdateDto note);
 
         IActionResult Delete(int id);
 
-        IActionResult Update(int id, NoteCreateDto note);
+        IActionResult Update(int id, NoteCreateUpdateDto note);
     }
 }

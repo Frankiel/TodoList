@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TodoList.Extensibility.Dto;
 using TodoList.Extensibility.Repository;
@@ -34,7 +33,7 @@ namespace TodoList.Services.Services
             return new OkObjectResult(categoryRepository.Get(id));
         }
 
-        public IActionResult Add(CategoryAddUpdateDto category)
+        public IActionResult Add(CategoryCreateUpdateDto category)
         {
             if (!categoryValidator.ValidateInput(category))
             {
@@ -46,7 +45,7 @@ namespace TodoList.Services.Services
             return new NoContentResult();
         }
 
-        public IActionResult Update(int id, CategoryAddUpdateDto category)
+        public IActionResult Update(int id, CategoryCreateUpdateDto category)
         {
             if (!categoryValidator.ValidateExistence(id) || !categoryValidator.ValidateInput(category))
             {

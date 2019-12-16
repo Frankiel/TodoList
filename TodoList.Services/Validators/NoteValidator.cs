@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using TodoList.Extensibility.Dto;
+﻿using TodoList.Extensibility.Dto;
 using TodoList.Extensibility.Repository;
 using TodoList.Extensibility.Validators;
 
@@ -24,7 +20,7 @@ namespace TodoList.Services.Validators
             return noteRepository.Get(id) != null;
         }
 
-        public bool ValidateAdd(NoteCreateDto note)
+        public bool ValidateAdd(NoteCreateUpdateDto note)
         {
             return (note.Text != null && note.CategoryId > 0 && categoryValidator.ValidateExistence(note.CategoryId));
         }

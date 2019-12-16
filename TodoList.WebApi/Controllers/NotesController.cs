@@ -31,14 +31,14 @@ namespace TodoList.WebApi.Controllers
 
         // POST api/notes
         [HttpPost]
-        public IActionResult Post([FromBody] NoteCreateDto note)
+        public IActionResult Post([FromBody] NoteCreateUpdateDto note)
         {
             return _noteService.Add(note);
         }
 
         // PUT api/notes/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] NoteCreateDto note)
+        public IActionResult Put(int id, [FromBody] NoteCreateUpdateDto note)
         {
             return _noteService.Update(id, note);
         }

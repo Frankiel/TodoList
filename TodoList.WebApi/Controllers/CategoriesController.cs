@@ -32,14 +32,14 @@ namespace TodoList.WebApi.Controllers
 
         // POST: api/Categories
         [HttpPost]
-        public IActionResult Post([FromBody] CategoryAddUpdateDto category)
+        public IActionResult Post([FromBody] CategoryCreateUpdateDto category)
         {
             return _categoryService.Add(category);
         }
 
         // PUT: api/Categories/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] CategoryAddUpdateDto category)
+        public IActionResult Put(int id, [FromBody] CategoryCreateUpdateDto category)
         {
             return _categoryService.Update(id, category);
         }

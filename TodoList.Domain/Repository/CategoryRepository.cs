@@ -29,7 +29,7 @@ namespace TodoList.Domain.Repository
             return mapper.Map<CategoryDto>(todoListContext.Categories.FirstOrDefault(category=>category.Id==id));
         }
 
-        public void Add(CategoryAddUpdateDto category)
+        public void Add(CategoryCreateUpdateDto category)
         {
             var result = mapper.Map<Category>(category);
 
@@ -37,7 +37,7 @@ namespace TodoList.Domain.Repository
             todoListContext.SaveChanges();
         }
 
-        public void Update(int id, CategoryAddUpdateDto category)
+        public void Update(int id, CategoryCreateUpdateDto category)
         {
             var categoryToUpdate = todoListContext.Categories.FirstOrDefault(categoryEntity => categoryEntity.Id == id);
 

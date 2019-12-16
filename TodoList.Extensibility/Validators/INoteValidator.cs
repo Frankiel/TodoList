@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TodoList.Extensibility.Dto;
+﻿using TodoList.Extensibility.Dto;
 
 namespace TodoList.Extensibility.Validators
 {
@@ -9,6 +6,6 @@ namespace TodoList.Extensibility.Validators
     {
         bool ValidateExistence(int id);
 
-        bool ValidateAdd(NoteCreateDto note);
+        bool ValidateAdd(NoteCreateUpdateDto note);
     }
 }
